@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map and Set</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <pre>
+        Que-1
+        Problem:
+        You are given a string (STR) of length N, consisting of only the lower case English alphabet.
+        Your task is to remove all the duplicate occurrences of characters in the string.
+        
+        Input:
+        abcadeecfb
+        
+        Output:
+        abcdef
+        
+
+        Ans-1
+            function removeDuplicates(str) {
+                const uniqueCharacters = [];
+                const strArray = str.split('');
+            
+                for (let i = 0; i < strArray.length; i++) {
+                    if (!uniqueCharacters.includes(strArray[i])) {
+                        uniqueCharacters.push(strArray[i]);
+                    }
+                }
+            
+                return uniqueCharacters.join('');
+            }
+            
+            const inputString = 'abcadeecfb';
+            const outputString = removeDuplicates(inputString);
+            console.log(outputString);
+    </pre>
+
+    <hr>
+
+    <pre>
+        Que-2
+        Problem:
+            You are given a string (STR) of length N, you have to print the count of all alphabet.(using maps)
+            
+            Input:
+            abcadeecfb
+            
+            Output:
+            a=2
+            b=2
+            c=2
+            d=1
+            e=2
+            f=1
+
+        
+        Ans-2
+            function countAlphabets(str) {
+                const charCountMap = new Map();
+            
+                for (let i = 0; i < str.length; i++) {
+                    const char = str[i];
+                    charCountMap.set(char, (charCountMap.get(char) || 0) + 1);
+                }
+            
+                charCountMap.forEach((count, char) => {
+                    console.log(`${char}=${count}`);
+                });
+            }
+            
+            const inputString = 'abcadeecfb';
+            countAlphabets(inputString);
+    </pre>
+</body>
+</html>
